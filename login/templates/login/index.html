@@ -1,0 +1,27 @@
+{% load socialaccount %}
+{% providers_media_js %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>American Airline</title>
+</head>
+
+<body>
+    {% if user.is_authenticated %}
+    <h1>Welcome {{ user }}</h1>
+    <img width="50" height="50" src="{{ user.socialaccount_set.all.0.get_avatar_url }}" />
+
+    <div>
+        <p><a href="{% url 'account_logout' %}">Log out</a></p>
+    </div>
+    {% else %}
+    <a href="{% provider_login_url "google" %}">Google Connect</a>
+    {% endif %}
+
+    {% block content %}{% endblock %}
+</body>
+
+</html>

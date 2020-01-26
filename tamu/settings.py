@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'flightInfoPage',
     'dashboard',
     'django.contrib.admin',
     'django.contrib.auth',
